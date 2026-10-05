@@ -1,4 +1,13 @@
-﻿using System.Text;
+﻿/// <summary>
+/// Title: MainWindow.xaml.cs / TicTacToe Game
+/// Desc: This is the code for the logic behind the tic tac toe game.
+///       Sorry for the late submission was very exhausted with work.
+/// Author: Andrew Filson (Adu Poku)
+/// Date: 2026-10-05
+/// </summary>
+
+
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;

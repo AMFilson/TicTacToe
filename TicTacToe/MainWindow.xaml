@@ -7,18 +7,15 @@
         mc:Ignorable="d"
         Title="Tic Tac Toe" Height="601" Width="539">
     <Canvas Margin="12,0,-12,0" ToolTip="Displays the current round number in this match.">
-        <Grid x:Name="GameBoard" 
-          KeyboardNavigation.DirectionalNavigation="Contained">
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="389" TabIndex="9" ToolTip="Place move in Top-Right (Row 3, Column 1)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="389" TabIndex="10" ToolTip="Place move in Top-Right (Row 3, Column 2)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="389" TabIndex="11" ToolTip="Place move in Top-Right (Row 3, Column 3)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="256" TabIndex="6" ToolTip="Place move in Top-Right (Row 2, Column 1)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top"  Height="128" Width="123" Canvas.Left="140" Canvas.Top="256" TabIndex="7" ToolTip="Place move in Top-Right (Row 2, Column 2)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="256" TabIndex="8" ToolTip="Place move in Top-Right (Row 2, Column 3)"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="123" TabIndex="3" ToolTip="Place move in Top-Left (Row 1, Column 1)&quot;"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="128" Width="123" Canvas.Left="140" Canvas.Top="123" TabIndex="4" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonTopCentre"/>
-            <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="123" TabIndex="5" ToolTip="Place move in Top-Right (Row 1, Column 3)"/>
-        </Grid>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="389" TabIndex="9" ToolTip="Place move in Top-Right (Row 3, Column 1)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="389" TabIndex="10" ToolTip="Place move in Top-Right (Row 3, Column 2)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="389" TabIndex="11" ToolTip="Place move in Top-Right (Row 3, Column 3)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="256" TabIndex="6" ToolTip="Place move in Top-Right (Row 2, Column 1)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top"  Height="128" Width="123" Canvas.Left="140" Canvas.Top="256" TabIndex="7" ToolTip="Place move in Top-Right (Row 2, Column 2)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="256" TabIndex="8" ToolTip="Place move in Top-Right (Row 2, Column 3)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="123" TabIndex="3" ToolTip="Place move in Top-Left (Row 1, Column 1)&quot;"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="128" Width="123" Canvas.Left="140" Canvas.Top="123" TabIndex="4" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonTopCentre"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="123" TabIndex="5" ToolTip="Place move in Top-Right (Row 1, Column 3)"/>
         <Label Content="Player X" Canvas.Left="10" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox x:Name="entryBoxPlayerX" Canvas.Left="67" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" TabIndex="0" ToolTip="Enter the Name of Player X."/>
         <Label Content="Player O" Canvas.Left="216" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>

@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe"
         mc:Ignorable="d"
-        Title="Tic Tac Toe" Height="543" Width="539">
+        Title="Tic Tac Toe" Height="555" Width="539">
     <Canvas Margin="12,0,-12,0">
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="389" TabIndex="9"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="389" TabIndex="10"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="389" TabIndex="11"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="256" TabIndex="6"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="256" TabIndex="7"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="256" TabIndex="8"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="123" TabIndex="3"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="123" TabIndex="4"/>
-        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="123" TabIndex="5"/>
-        <Label Content="X Player" Canvas.Left="10" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="67" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" TabIndex="0"/>
-        <Label Content="O Player" Canvas.Left="216" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="273" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Center" TabIndex="1"/>
-        <Button Content="Choose Starting Player" Canvas.Left="10" Canvas.Top="67" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" TabIndex="2"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="389" TabIndex="9" ToolTip="Place move in Top-Right (Row 3, Column 1)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="140" Canvas.Top="389" TabIndex="10" ToolTip="Place move in Top-Right (Row 3, Column 2)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="389" TabIndex="11" ToolTip="Place move in Top-Right (Row 3, Column 3)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="256" TabIndex="6" ToolTip="Place move in Top-Right (Row 2, Column 1)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top"  Height="128" Width="123" Canvas.Left="140" Canvas.Top="256" TabIndex="7" ToolTip="Place move in Top-Right (Row 2, Column 2)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="256" TabIndex="8" ToolTip="Place move in Top-Right (Row 2, Column 3)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="10" Canvas.Top="123" TabIndex="3" ToolTip="Place move in Top-Left (Row 1, Column 1)&quot;"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="128" Width="123" Canvas.Left="140" Canvas.Top="123" TabIndex="4" ToolTip="Place move in Top-Center (Row 1, Column 2)"/>
+        <Button Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Height="128" Width="123" Canvas.Left="270" Canvas.Top="123" TabIndex="5" ToolTip="Place move in Top-Right (Row 1, Column 3)"/>
+        <Label Content="Player X" Canvas.Left="10" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="67" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" TabIndex="0" ToolTip="Enter the Name of Player X"/>
+        <Label Content="Player O" Canvas.Left="216" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Canvas.Left="273" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Center" TabIndex="1" ToolTip="Enter the Name of Player O"/>
+        <Button Content="Choose Starting Player" Canvas.Left="10" Canvas.Top="67" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" TabIndex="2" ToolTip="First Player in a New Game"/>
         <Label Content="Current Player" Canvas.Left="159" Canvas.Top="66" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.549,-0.037"/>
         <TextBox Canvas.Left="182" TextWrapping="Wrap" Canvas.Top="92" Width="38" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" IsReadOnly="True" IsEnabled="False"/>
         <Label Content="Score" Canvas.Left="415" Canvas.Top="123" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -30,7 +30,7 @@
         <TextBox Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="218" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False"/>
         <Label Content="Current Round" Canvas.Left="415" Canvas.Top="241" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBox Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="267" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False"/>
-        <Button Content="Reset" Canvas.Left="415" Canvas.Top="320" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click" Width="87" TabIndex="12"/>
-        <Button Content="Exit" Canvas.Left="415" Canvas.Top="370" Height="45" Click="Button_Click" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" TabIndex="13"/>
+        <Button Content="Reset" Canvas.Left="415" Canvas.Top="320" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click" Width="87" TabIndex="12" ToolTip="Restart Current Round"/>
+        <Button Content="Exit" Canvas.Left="415" Canvas.Top="370" Height="45" Click="Button_Click" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" TabIndex="13" ToolTip="Exit Game"/>
     </Canvas>
 </Window>

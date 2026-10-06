@@ -28,6 +28,7 @@ namespace TicTacToe
         public MainWindow()
         {
             InitializeComponent();
+            entryBoxPlayerX.Focus();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -37,7 +38,24 @@ namespace TicTacToe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Application.Current.Shutdown();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonTopCentre(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("You clicked the Top Center button!");
+        }
+
+        private void ButtonResetClick(object sender, RoutedEventArgs e)
+        {
+            entryBoxPlayerX.Clear();
+            entryBoxPlayerO.Clear();
+            entryBoxPlayerX.Focus();
         }
     }
 }

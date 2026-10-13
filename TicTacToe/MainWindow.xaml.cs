@@ -8,6 +8,8 @@
 /// </summary>
 
 
+using System.Collections.Immutable;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,12 +37,24 @@ namespace TicTacToe
         // Set current player
         private string currentPlayer = "X";
 
+        // Keep track of total games played/rounds
+        private int gamesPlayed = 0;
+
+        private int playerXGamesWon = 0;
+
+        private int playerOGamesWon = 0;
+
         // dog it took me 1 billion years to realize I dont need to declare a variable in mainwindow()
         public MainWindow()
         {
             InitializeComponent();
             // Start game with a defined focus
             entryBoxPlayerX.Focus();
+            currentPlayerBox.Text = currentPlayer;
+            //Start the game with default values displayed
+            gamesPlayedBox.Text = gamesPlayed.ToString();
+            playerXGamesWonBox.Text = playerXGamesWon.ToString();
+            playerOGamesWonBox.Text = playerOGamesWon.ToString();
 
 
             // The array of buttons has to be inside mainwindow I think so I can actually access the buttons by xName
@@ -119,6 +133,34 @@ namespace TicTacToe
             entryBoxPlayerO.Clear();
             entryBoxPlayerX.Focus();
             turnCounter = 0;
+            radioPlayerO.IsEnabled = true;
+            radioPlayerX.IsEnabled = true;
+
+
+            // Clear and enable every button on the board
+            foreach (Button button in gameBoardButtons)
+            {
+                // Clears the "X" or "O"
+                button.Content = "";
+                // Makes the button clickable again
+                button.IsEnabled = true; 
+            }
+
+            if (radioPlayerX.IsChecked == true)
+            {
+                currentPlayer = "X";
+            }
+            else if (radioPlayerO.IsChecked == true)
+            {
+                currentPlayer = "O";
+            }
+
+            // Update the display to reflect the choice
+            if (currentPlayerBox != null)
+            {
+                currentPlayerBox.Text = currentPlayer;
+            }
+
         }
 
 
@@ -146,19 +188,43 @@ namespace TicTacToe
                 {
 
                     string firstButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
-                    string secondButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
-                    string thirdButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
+                    string secondButtonXorO = gameBoardButtons[validPattern[1]].Content?.ToString() ?? "";
+                    string thirdButtonXorO = gameBoardButtons[validPattern[2]].Content?.ToString() ?? "";
 
                     // Check if the values of the 3 buttons match
                     // can't use compare because compare is valid in some combinations on 3 empty boxes
                     // Here I just gotta make sure I compare one button to the rest, and that my primary button doesnt contain an empty value
                     // Okay nvm I actually gotta compare all 3 buttons or it doesnt care lmao
-                    if (!string.IsNullOrEmpty(firstButtonXorO) && firstButtonXorO == secondButtonXorO && secondButtonXorO == thirdButtonXorO)
+                    if (!string.IsNullOrEmpty(firstButtonXorO) && firstButtonXorO == secondButtonXorO && firstButtonXorO == thirdButtonXorO)
                     {
-
+                        // Whoever produces the winning pattern has their name displayed
+                        string winnerName = (firstButtonXorO == "X") ? entryBoxPlayerX.Text : entryBoxPlayerO.Text;
                         // Display win message
-                        MessageBox.Show($"Winner winner {entryBoxPlayerX.Text} gets Chow Mein for dinner!");
+                        MessageBox.Show($"Winner winner {winnerName} gets Chow Mein for dinner!");
+
+                        // Whoever wins the game, gets their games won counter incremented up
+                        if (firstButtonXorO == "X")
+                        {
+                            playerXGamesWon++;
+                            playerXGamesWonBox.Text = playerXGamesWon.ToString();
+                        }
+                        else
+                        {
+                            playerOGamesWon++;
+                            playerOGamesWonBox.Text = playerOGamesWon.ToString();
+                        }
+
+                        // Increment gamesplayed counter
+                        gamesPlayed++;
+                        gamesPlayedBox.Text = gamesPlayed.ToString();
+
                         // Stop any new plays until they reset or quit.
+                        foreach (var button in gameBoardButtons)
+                        {
+                            button.IsEnabled = false;
+                        }
+                        // Exit foreach loop since a valid pattern was successfully found
+                        return;
                     }
 
                 }
@@ -168,7 +234,13 @@ namespace TicTacToe
                 {
                     // Display win message
                     MessageBox.Show("It's a draw! Try again, double or nothing.");
+                    // Increment gamesplayed counter
+                    gamesPlayed++;
                     // Stop any new plays until they reset or quit.
+                    foreach (var button in gameBoardButtons)
+                    {
+                        button.IsEnabled = false;
+                    }
                 }
             }
             else
@@ -192,6 +264,19 @@ namespace TicTacToe
         // Sixth. It will check the amount of turns that have passed, if >=5 it will check if the current player has won the game.
         private void PlayerMove(Button clickedButton)
         {
+
+            // I want to go to bed... final steps
+            if (turnCounter >= 0 )
+            {
+                radioPlayerO.IsEnabled = false;
+                radioPlayerX.IsEnabled = false;
+            }
+            else 
+            { 
+                radioPlayerO.IsEnabled = true;
+                radioPlayerX.IsEnabled = true; 
+            }
+
             if (clickedButton.Content != null && !string.IsNullOrEmpty(clickedButton.Content.ToString()))
             {
                 // Do nothing the box is already taken
@@ -211,10 +296,39 @@ namespace TicTacToe
             if (turnCounter >= 5)
             {
                 CheckForWin();
-                return;
             }
             // Switch turns between X and O
             currentPlayer = (currentPlayer == "X") ? "O" : "X";
+
+            // Switch displayed current player to correspond
+            currentPlayerBox.Text = currentPlayer;
+        }
+
+        private void RadioButtonChecked(object sender, RoutedEventArgs e)
+        {
+            // Only allow changing the starting player if the game hasn't started yet
+            if (turnCounter == 0)
+            {
+                if (radioPlayerX.IsChecked == true)
+                {
+                    currentPlayer = "X";
+                }
+                else if (radioPlayerO.IsChecked == true)
+                {
+                    currentPlayer = "O";
+                }
+
+                // Update the display to reflect the choice
+                if (currentPlayerBox != null)
+                {
+                    currentPlayerBox.Text = currentPlayer;
+                }
+            }
+        }
+
+        private void currentPlayerBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -18,31 +18,33 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="buttonTopLeft" Grid.Row="0" Grid.Column="0" Margin="3" TabIndex="4" ToolTip="Place move in Top-Left (Row 1, Column 1)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonTopCentre" Grid.Row="0" Grid.Column="1" Margin="3" TabIndex="5" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonTopRight" Grid.Row="0" Grid.Column="2" Margin="3" TabIndex="6" ToolTip="Place move in Top-Right (Row 1, Column 3)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonMiddleLeft"  Grid.Row="1" Grid.Column="0" Margin="3" TabIndex="7" ToolTip="Place move in Middle-Left (Row 2, Column 1)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonMiddleCentre" Grid.Row="1" Grid.Column="1" Margin="3" TabIndex="8" ToolTip="Place move in Middle-Center (Row 2, Column 2)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonMiddleRight" Grid.Row="1" Grid.Column="2" Margin="3" TabIndex="9" ToolTip="Place move in Middle-Right (Row 2, Column 3)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonBottomLeft" Grid.Row="2" Grid.Column="0" Margin="3" TabIndex="10" ToolTip="Place move in Bottom-Left (Row 3, Column 1)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonBottomCentre" Grid.Row="2" Grid.Column="1" Margin="3" TabIndex="11" ToolTip="Place move in Bottom-Center (Row 3, Column 2)" Click="ButtonGameBoardClick" />
-            <Button x:Name="buttonBottomRight" Grid.Row="2" Grid.Column="2" Margin="3" TabIndex="12" ToolTip="Place move in Bottom-Right (Row 3, Column 3)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonTopLeft" Grid.Row="0" Grid.Column="0" Margin="3" TabIndex="5" ToolTip="Place move in Top-Left (Row 1, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonTopCentre" Grid.Row="0" Grid.Column="1" Margin="3" TabIndex="6" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonTopRight" Grid.Row="0" Grid.Column="2" Margin="3" TabIndex="7" ToolTip="Place move in Top-Right (Row 1, Column 3)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleLeft"  Grid.Row="1" Grid.Column="0" Margin="3" TabIndex="8" ToolTip="Place move in Middle-Left (Row 2, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleCentre" Grid.Row="1" Grid.Column="1" Margin="3" TabIndex="9" ToolTip="Place move in Middle-Center (Row 2, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleRight" Grid.Row="1" Grid.Column="2" Margin="3" TabIndex="10" ToolTip="Place move in Middle-Right (Row 2, Column 3)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomLeft" Grid.Row="2" Grid.Column="0" Margin="3" TabIndex="11" ToolTip="Place move in Bottom-Left (Row 3, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomCentre" Grid.Row="2" Grid.Column="1" Margin="3" TabIndex="12" ToolTip="Place move in Bottom-Center (Row 3, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomRight" Grid.Row="2" Grid.Column="2" Margin="3" TabIndex="13" ToolTip="Place move in Bottom-Right (Row 3, Column 3)" Click="ButtonGameBoardClick" />
         </Grid>
         <Label Content="Player X" Canvas.Left="10" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox x:Name="entryBoxPlayerX" Canvas.Left="67" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" TabIndex="0" ToolTip="Enter the Name of Player X."/>
         <Label Content="Player O" Canvas.Left="216" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox x:Name="entryBoxPlayerO" Canvas.Left="273" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Center" TabIndex="1" ToolTip="Enter the Name of Player O."/>
-        <Button Content="_Choose Starting Player" Canvas.Left="10" Canvas.Top="67" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" TabIndex="2" ToolTip="First Player in a New Game." IsDefault="True"/>
-        <Label Content="Current Player" Canvas.Left="159" Canvas.Top="66" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.549,-0.037" ToolTip=""/>
-        <TextBox Canvas.Left="182" TextWrapping="Wrap" Canvas.Top="92" Width="38" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" IsReadOnly="True" ToolTip="Shows whose turn it is to play (X or O)." TabIndex="3"/>
+        <Label Content="Current Player" Canvas.Left="287" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.549,-0.037" ToolTip=""/>
+        <TextBox x:Name="currentPlayerBox" Canvas.Left="310" TextWrapping="Wrap" Canvas.Top="92" Width="38" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" IsReadOnly="True" ToolTip="Shows whose turn it is to play (X or O)." TabIndex="4" TextChanged="currentPlayerBox_TextChanged"/>
         <Label Content="Score" Canvas.Left="415" Canvas.Top="123" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="X" Canvas.Left="415" Canvas.Top="187" RenderTransformOrigin="0.59,0.537" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="191" Width="33" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTip="Total games won by Player X." IsReadOnly="True" TabIndex="13"/>
+        <TextBox x:Name="playerXGamesWonBox" Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="191" Width="33" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTip="Total games won by Player X." IsReadOnly="True" TabIndex="14"/>
         <Label Content="O" Canvas.Left="415" Canvas.Top="214" RenderTransformOrigin="0.59,0.537" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="218" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip=" Total games won by Player O." IsReadOnly="True" TabIndex="14"/>
-        <Label Content="Current Round" Canvas.Left="415" Canvas.Top="241" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="267" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Displays the current round number in this match." IsReadOnly="True" TabIndex="15"/>
-        <Button Content="_Reset" Canvas.Left="415" Canvas.Top="320" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="87" TabIndex="16" ToolTip="Restart Current Round." Click="ButtonResetClick" IsCancel="True"/>
+        <TextBox x:Name="playerOGamesWonBox" Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="218" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip=" Total games won by Player O." IsReadOnly="True" TabIndex="15"/>
+        <Label Content="Games Played" Canvas.Left="415" Canvas.Top="241" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="gamesPlayedBox" Canvas.Left="437" TextWrapping="Wrap" Canvas.Top="267" Width="33" HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Displays the amount of games played." IsReadOnly="True" TabIndex="16"/>
+        <Button Content="_Reset" Canvas.Left="415" Canvas.Top="320" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="87" TabIndex="17" ToolTip="Restart Current Round." Click="ButtonResetClick" IsCancel="True"/>
         <Button Content="_Exit" Canvas.Left="415" Canvas.Top="370" Height="45" Click="ButtonExit" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" TabIndex="17" ToolTip="Exit Game."/>
+        <RadioButton x:Name="radioPlayerX" Content="Player X" Canvas.Left="36" Canvas.Top="103" Checked="RadioButtonChecked" GroupName="StartingPlayer" IsChecked="True" TabIndex="2" ToolTip="Sets PlayerX as first to move in a new game."/>
+        <RadioButton x:Name="radioPlayerO" Content="Player O" Canvas.Left="111" Canvas.Top="103" Checked="RadioButtonChecked" HorizontalAlignment="Left" VerticalAlignment="Center" GroupName="StartingPlayer" TabIndex="3" ToolTip="Sets PlayerO as first to move in a new game."/>
+        <Label Content="Choose Starting Player" Canvas.Left="41" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </Window>

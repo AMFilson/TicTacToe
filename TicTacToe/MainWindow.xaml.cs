@@ -29,6 +29,8 @@ namespace TicTacToe
 
         // A counter to keep track of turns to validate draws
         private int turnCounter = 0;
+        // I need an array of buttons to store the buttons on the game board so I can sort through them to check for wins and draws
+        private Button[] gameBoardButtons;
 
         // dog it took me 1 billion years to realize I dont need to declare a variable in mainwindow()
         public MainWindow()
@@ -36,13 +38,24 @@ namespace TicTacToe
             InitializeComponent();
             // Start game with a defined focus
             entryBoxPlayerX.Focus();
+
+            // The array of buttons has to be inside mainwindow I think so I can actually access the buttons by xName
+            gameBoardButtons = new Button[]
+            {   
+                // By placing each button into an array I can sort through them via int index (0..8) and check for wins and draws
+                // Then all I have to do is check the content of each button in the array and see if they match a winning pattern
+                // If the content value of a set of 3 buttons matches a winning pattern then the player has won the game
+                buttonTopLeft, buttonTopCentre,buttonTopRight,
+                buttonMiddleLeft,buttonMiddleCentre, buttonMiddleRight,
+                buttonBottomLeft,buttonBottomCentre, buttonBottomRight
+            };
         
         }
 
         // One array for sorting through all winning patterns.
         // There are 3 possible winning row patterns
         // There are 3 possible winning column pattern
-        // There are 2 possible winning diagonal patterns tic
+        // There are 2 possible winning diagonal patterns 
         private readonly int[][]  winningPatterns = new int[][]
             { 
                 // So in a 2 dimensional array the first index is the row and 2nd index is the column
@@ -115,19 +128,57 @@ namespace TicTacToe
 
         //This function checks all possible winning combos for a player by calling the CheckLine function for each possible winning line.
         // There has to be a cleaner way to do this with an array but ill wait for now and finish the logic
-        private void CheckForWin(string player)
+        private void CheckForWin()
         {
-            // check rows
-            CheckLine(player, buttonTopLeft, buttonTopCentre, buttonTopRight);
-            CheckLine(player, buttonMiddleLeft, buttonMiddleCentre, buttonMiddleRight);
-            CheckLine(player, buttonBottomLeft, buttonBottomCentre, buttonBottomRight);
-            // check columns
-            CheckLine(player, buttonTopLeft, buttonMiddleLeft, buttonBottomLeft);
-            CheckLine(player, buttonTopCentre, buttonMiddleCentre, buttonBottomCentre);
-            CheckLine(player, buttonTopRight, buttonMiddleRight, buttonBottomRight);
-            // check diagonals
-            CheckLine(player, buttonTopLeft, buttonMiddleCentre, buttonBottomRight);
-            CheckLine(player, buttonTopRight, buttonMiddleCentre, buttonBottomLeft);
+            /*            // check rows
+                        CheckLine(player, buttonTopLeft, buttonTopCentre, buttonTopRight);
+                        CheckLine(player, buttonMiddleLeft, buttonMiddleCentre, buttonMiddleRight);
+                        CheckLine(player, buttonBottomLeft, buttonBottomCentre, buttonBottomRight);
+                        // check columns
+                        CheckLine(player, buttonTopLeft, buttonMiddleLeft, buttonBottomLeft);
+                        CheckLine(player, buttonTopCentre, buttonMiddleCentre, buttonBottomCentre);
+                        CheckLine(player, buttonTopRight, buttonMiddleRight, buttonBottomRight);
+                        // check diagonals
+                        CheckLine(player, buttonTopLeft, buttonMiddleCentre, buttonBottomRight);
+                        CheckLine(player, buttonTopRight, buttonMiddleCentre, buttonBottomLeft);*/
+
+            if (turnCounter >= 5)
+            {
+                // A foreach loop is superior to a for loop since I don't need to iterate through the each column of a winning pattern/row
+                // I just need to see if each row is a direct match with a combination of buttons
+                foreach (var validPattern in winningPatterns)
+                {
+
+                    string firstButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
+                    string secondButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
+                    string thirdButtonXorO = gameBoardButtons[validPattern[0]].Content?.ToString() ?? "";
+
+                    // Check if the values of the 3 buttons match
+                    // can't use compare because compare is valid in some combinations on 3 empty boxes
+                    // Here I just gotta make sure I compare one button to the rest, and that my primary button doesnt contain an empty value
+                    if (!string.IsNullOrEmpty(firstButtonXorO) && firstButtonXorO == secondButtonXorO && firstButtonXorO == thirdButtonXorO)
+                    {
+                        // Display win message
+                        MessageBox.Show($"Winner winner {entryBoxPlayerX} gets Chow Mein for dinner!");
+                        // Stop any new plays until they reset or quit.
+                    }
+
+                }
+
+                // If 9 turns have passed with 0 wins they both suck and a draw happens
+                if (turnCounter == 9)
+                {
+                    // Display win message
+                    MessageBox.Show("It's a draw! Try again, double or nothing.");
+                    // Stop any new plays until they reset or quit.
+                }
+            }
+            else
+            {
+                // nothing should happen if there arent enough turns to win
+                return;
+            }
+            ;
         }
 
 
@@ -139,7 +190,8 @@ namespace TicTacToe
         // Third. If a button is already filled with a players move, it will not allow the player to place a move there
         // instead the button will be in ReadOnly mode and the player will have to choose another button.
         // Fourth. If the button is empty, it will place the current players move on the button.
-        // Fifth. It will check the amount of turns that have passed, if >=5 it will check if the current player has won the game.
+        // Fifth. It will increment the turn counter.
+        // Sixth. It will check the amount of turns that have passed, if >=5 it will check if the current player has won the game.
         private void PlayerMove(string player)
         {
         

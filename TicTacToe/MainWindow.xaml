@@ -18,15 +18,15 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="buttonTopLeft" Grid.Row="0" Grid.Column="0" Margin="3" TabIndex="4" ToolTip="Place move in Top-Left (Row 1, Column 1)" />
-            <Button x:Name="buttonTopCentre" Grid.Row="0" Grid.Column="1" Margin="3" TabIndex="5" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonTopCentre" />
-            <Button x:Name="buttonTopRight" Grid.Row="0" Grid.Column="2" Margin="3" TabIndex="6" ToolTip="Place move in Top-Right (Row 1, Column 3)" />
-            <Button x:Name="buttonMiddleLeft"  Grid.Row="1" Grid.Column="0" Margin="3" TabIndex="7" ToolTip="Place move in Middle-Left (Row 2, Column 1)" />
-            <Button x:Name="buttonMiddleCentre" Grid.Row="1" Grid.Column="1" Margin="3" TabIndex="8" ToolTip="Place move in Middle-Center (Row 2, Column 2)" />
-            <Button x:Name="buttonMiddleRight" Grid.Row="1" Grid.Column="2" Margin="3" TabIndex="9" ToolTip="Place move in Middle-Right (Row 2, Column 3)" />
-            <Button x:Name="buttonBottomLeft" Grid.Row="2" Grid.Column="0" Margin="3" TabIndex="10" ToolTip="Place move in Bottom-Left (Row 3, Column 1)" />
-            <Button x:Name="buttonBottomCentre" Grid.Row="2" Grid.Column="1" Margin="3" TabIndex="11" ToolTip="Place move in Bottom-Center (Row 3, Column 2)" />
-            <Button x:Name="buttonBottomRight" Grid.Row="2" Grid.Column="2" Margin="3" TabIndex="12" ToolTip="Place move in Bottom-Right (Row 3, Column 3)" />
+            <Button x:Name="buttonTopLeft" Grid.Row="0" Grid.Column="0" Margin="3" TabIndex="4" ToolTip="Place move in Top-Left (Row 1, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonTopCentre" Grid.Row="0" Grid.Column="1" Margin="3" TabIndex="5" ToolTip="Place move in Top-Center (Row 1, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonTopRight" Grid.Row="0" Grid.Column="2" Margin="3" TabIndex="6" ToolTip="Place move in Top-Right (Row 1, Column 3)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleLeft"  Grid.Row="1" Grid.Column="0" Margin="3" TabIndex="7" ToolTip="Place move in Middle-Left (Row 2, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleCentre" Grid.Row="1" Grid.Column="1" Margin="3" TabIndex="8" ToolTip="Place move in Middle-Center (Row 2, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonMiddleRight" Grid.Row="1" Grid.Column="2" Margin="3" TabIndex="9" ToolTip="Place move in Middle-Right (Row 2, Column 3)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomLeft" Grid.Row="2" Grid.Column="0" Margin="3" TabIndex="10" ToolTip="Place move in Bottom-Left (Row 3, Column 1)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomCentre" Grid.Row="2" Grid.Column="1" Margin="3" TabIndex="11" ToolTip="Place move in Bottom-Center (Row 3, Column 2)" Click="ButtonGameBoardClick" />
+            <Button x:Name="buttonBottomRight" Grid.Row="2" Grid.Column="2" Margin="3" TabIndex="12" ToolTip="Place move in Bottom-Right (Row 3, Column 3)" Click="ButtonGameBoardClick" />
         </Grid>
         <Label Content="Player X" Canvas.Left="10" Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBox x:Name="entryBoxPlayerX" Canvas.Left="67" TextWrapping="Wrap" Text="" Canvas.Top="44" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="TextBox_TextChanged" TabIndex="0" ToolTip="Enter the Name of Player X."/>

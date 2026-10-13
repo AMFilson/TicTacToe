@@ -135,6 +135,7 @@ namespace TicTacToe
             radioPlayerX.IsEnabled = true;
 
 
+
             // Clear and enable every button on the board
             foreach (Button button in gameBoardButtons)
             {
@@ -195,8 +196,17 @@ namespace TicTacToe
                     // Okay nvm I actually gotta compare all 3 buttons or it doesnt care lmao
                     if (!string.IsNullOrEmpty(firstButtonXorO) && firstButtonXorO == secondButtonXorO && firstButtonXorO == thirdButtonXorO)
                     {
+                        gameBoardButtons[validPattern[0]].IsEnabled = true;
+                        gameBoardButtons[validPattern[1]].IsEnabled = true;
+                        gameBoardButtons[validPattern[2]].IsEnabled = true;
+                        gameBoardButtons[validPattern[0]].Background = Brushes.Green;
+                        gameBoardButtons[validPattern[1]].Background = Brushes.Green;
+                        gameBoardButtons[validPattern[2]].Background = Brushes.Green;
+
                         // Whoever produces the winning pattern has their name displayed
                         string winnerName = (firstButtonXorO == "X") ? entryBoxPlayerX.Text : entryBoxPlayerO.Text;
+
+                       
                         // Display win message
                         MessageBox.Show($"Winner winner {winnerName} gets Chow Mein for dinner!");
 
@@ -216,11 +226,19 @@ namespace TicTacToe
                         gamesPlayed++;
                         gamesPlayedBox.Text = gamesPlayed.ToString();
 
+
+                        gameBoardButtons[validPattern[0]].Background = Brushes.LightGray;
+                        gameBoardButtons[validPattern[1]].Background = Brushes.LightGray;
+                        gameBoardButtons[validPattern[2]].Background = Brushes.LightGray;
+
                         // Stop any new plays until they reset or quit.
                         foreach (var button in gameBoardButtons)
                         {
                             button.IsEnabled = false;
                         }
+
+                        ButtonResetClick(null, null);
+
                         // Exit foreach loop since a valid pattern was successfully found
                         return;
                     }

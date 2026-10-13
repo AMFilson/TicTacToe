@@ -129,8 +129,6 @@ namespace TicTacToe
 
         private void ButtonResetClick(object sender, RoutedEventArgs e)
         {
-            entryBoxPlayerX.Clear();
-            entryBoxPlayerO.Clear();
             entryBoxPlayerX.Focus();
             turnCounter = 0;
             radioPlayerO.IsEnabled = true;
@@ -275,6 +273,12 @@ namespace TicTacToe
             { 
                 radioPlayerO.IsEnabled = true;
                 radioPlayerX.IsEnabled = true; 
+            }
+
+            if (entryBoxPlayerX.Text.Length == 0 || entryBoxPlayerO.Text.Length == 0)
+            {
+                MessageBox.Show("You must enter in a name for PlayerX and PlayerO to play the game!");
+                return;
             }
 
             if (clickedButton.Content != null && !string.IsNullOrEmpty(clickedButton.Content.ToString()))
